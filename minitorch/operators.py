@@ -122,7 +122,7 @@ def inv_back(x: float, d: float) -> float:
 def relu_back(x: float, d: float) -> float:
     r"If $f = relu$ compute $d \times f'(x)$"
     # TODO: Implement for Task 0.1.
-    for _ in range(d):
+    for _ in range(int(d)):
         ret = relu(ret)
     return ret
 

@@ -108,15 +108,10 @@ def test_sigmoid(a: float) -> None:
     * It is  strictly increasing.
     """
     # TODO: Implement for Task 0.2.
-    assert sigmoid(a) >= 0.0 and sigmoid <= 1.0
+    assert 0.0 <= sigmoid(a) <= 1.0
     assert 1 - sigmoid(a) == sigmoid(-a)
     assert sigmoid(0.5) == 0
-    max = -99999
-    for i in range(-100, 100, 1):
-        if (sigmoid(i) > max):
-            continue
-        else:
-            assert False
+    assert sigmoid(a + 1) > sigmoid(a)
 
 
 
@@ -144,7 +139,7 @@ def test_symmetric(a: float, b: float) -> None:
 
 
 @pytest.mark.task0_2
-@given(small_floats, small_floats)
+@given(small_floats, small_floats, small_floats)
 def test_distribute(a: float, b: float, c: float) -> None:
     r"""
     Write a test that ensures that your operators distribute, i.e.
@@ -156,12 +151,12 @@ def test_distribute(a: float, b: float, c: float) -> None:
 
 @pytest.mark.task0_2
 @given(small_floats, small_floats)
-def test_other() -> None:
+def test_other(a: float, b: float) -> None:
     """
     Write a test that ensures some other property holds for your functions.
     """
     # TODO: Implement for Task 0.2.
-    assert True
+    assert inv_back(a, b) == b * pow(a, -2)
 
 
 # ## Task 0.3  - Higher-order functions

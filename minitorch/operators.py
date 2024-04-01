@@ -112,19 +112,16 @@ def inv(x: float) -> float:
 
 def inv_back(x: float, d: float) -> float:
     r"If $f(x) = 1/x$ compute $d \times f'(x)$"
-    # TODO: Implement for Task 0.1.
-    ret = x
-    for _ in range(d):
-        ret = 1.0 / ret
-    return ret
+    return d * pow(x, -2)
 
 
 def relu_back(x: float, d: float) -> float:
     r"If $f = relu$ compute $d \times f'(x)$"
     # TODO: Implement for Task 0.1.
-    for _ in range(int(d)):
-        ret = relu(ret)
-    return ret
+    if (x < 0):
+        return 0.0
+    else:
+        return d
 
 
 # ## Task 0.3

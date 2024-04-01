@@ -143,13 +143,20 @@ def map(fn: Callable[[float], float]) -> Callable[[Iterable[float]], Iterable[fl
          new list
     """
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError("Need to implement for Task 0.3")
+
+    def ret_fn(iterable_list: Iterable[float]) -> Iterable[float]:
+        ret = []
+        for x in iterable_list:
+            ret.append(fn(x))
+    
+    return ret_fn
+    
 
 
 def negList(ls: Iterable[float]) -> Iterable[float]:
     "Use `map` and `neg` to negate each element in `ls`"
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError("Need to implement for Task 0.3")
+    return map(neg)(ls)
 
 
 def zipWith(
@@ -169,13 +176,20 @@ def zipWith(
 
     """
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError("Need to implement for Task 0.3")
+    def ret_fn(ls1: Iterable[float], ls2: Iterable[float]) -> Iterable[float]:
+        res = []
+        for x, y in ls1, ls2:
+            res.append(fn(x, y))
+    
+        return res
+
+    return ret_fn
 
 
 def addLists(ls1: Iterable[float], ls2: Iterable[float]) -> Iterable[float]:
     "Add the elements of `ls1` and `ls2` using `zipWith` and `add`"
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError("Need to implement for Task 0.3")
+    return zipWith(add)(ls1, ls2)
 
 
 def reduce(
@@ -194,16 +208,23 @@ def reduce(
          fn(x_1, x_0)))`
     """
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError("Need to implement for Task 0.3")
+    def ret_fn(ls: Iterable[float]) -> float:
+        ret = start
+        for x in ls:
+            ret = fn(ret, x)
+        
+        return ret
+
+    return ret_fn
 
 
 def sum(ls: Iterable[float]) -> float:
     "Sum up a list using `reduce` and `add`."
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError("Need to implement for Task 0.3")
+    return reduce(sum, 0.0)(ls)
 
 
 def prod(ls: Iterable[float]) -> float:
     "Product of a list using `reduce` and `mul`."
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError("Need to implement for Task 0.3")
+    return reduce(prod, 1.0)(ls)

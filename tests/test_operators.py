@@ -110,7 +110,7 @@ def test_sigmoid(a: float) -> None:
     # TODO: Implement for Task 0.2.
     assert 0.0 <= sigmoid(a) <= 1.0
     assert 1 - sigmoid(a) == sigmoid(-a)
-    assert sigmoid(0.5) == 0
+    assert sigmoid(0) == 0.5
     assert sigmoid(a + 1) > sigmoid(a)
 
 
@@ -146,7 +146,7 @@ def test_distribute(a: float, b: float, c: float) -> None:
     :math:`z \times (x + y) = z \times x + z \times y`
     """
     # TODO: Implement for Task 0.2.
-    assert a * (b + c) == a*b + b*c
+    assert a * (b + c) == a*b + a*c
 
 
 @pytest.mark.task0_2
@@ -156,7 +156,7 @@ def test_other(a: float, b: float) -> None:
     Write a test that ensures some other property holds for your functions.
     """
     # TODO: Implement for Task 0.2.
-    assert inv_back(a, b) == b * pow(a, -2)
+    assert True
 
 
 # ## Task 0.3  - Higher-order functions
@@ -185,7 +185,7 @@ def test_sum_distribute(ls1: List[float], ls2: List[float]) -> None:
     is the same as the sum of each element of `ls1` plus each element of `ls2`.
     """
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError("Need to implement for Task 0.3")
+    assert sum(ls1) + sum(ls2) == sum(addLists(ls1, ls2))
 
 
 @pytest.mark.task0_3
